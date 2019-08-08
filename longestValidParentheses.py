@@ -21,24 +21,11 @@
 import unittest
 
 
+# 最长的括号字串
 class Solution:
     def longestValidParentheses(self, s: str) -> int:
-        mapping = {")": "("}
-        stack = []
-        n = 0
-        for char in s:
-            if char in mapping:
-                top_element = stack.pop() if stack else "#"
-                if mapping[char] == top_element:
-                    n += 1
-            else:
-                stack.append(char)
-        return n
 
 
 class TestLongestValidParentheses(unittest.TestCase):
     def test_init(self):
         d = Solution()
-        self.assertEqual(d.longestValidParentheses("(())()(()))())))"), 6)
-        self.assertEqual(d.longestValidParentheses("("), 0)
-        self.assertEqual(d.longestValidParentheses(")"), 0)

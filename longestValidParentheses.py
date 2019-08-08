@@ -24,6 +24,7 @@ import unittest
 # 最长的括号字串
 class Solution:
     def longestValidParentheses(self, s: str) -> int:
+        n = len(s)
 
 
 class TestLongestValidParentheses(unittest.TestCase):

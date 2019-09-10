@@ -9,7 +9,7 @@
 向右旋转 1 步: 5->1->2->3->4->NULL
 向右旋转 2 步: 4->5->1->2->3->NULL
 
-
+ return int(math.factorial(m+n-2)/math.factorial(m-1)/math.factorial(n-1))
 示例 2:
 
 输入: 0->1->2->NULL, k = 4

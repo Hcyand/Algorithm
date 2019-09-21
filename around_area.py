@@ -30,6 +30,7 @@ X O X X
 
 
 class Solution:
+    # 方向判定
     directions = [(0, -1), (-1, 0), (0, 1), (1, 0)]
 
     def solve(self, board: [[str]]) -> None:

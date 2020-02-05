@@ -22,6 +22,8 @@
 """
 
 
+# 巧用动态规划
+
 class Solution:
     def minCost(self, costs: [[int]]) -> int:
         # 动态规划问题，注意转变思维

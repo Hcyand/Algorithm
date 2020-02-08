@@ -38,5 +38,33 @@
 链接：https://leetcode-cn.com/problems/alien-dictionary
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
+# 需要自己解决问题
+import collections
+import itertools
+
+
 class Solution:
     def alienOrder(self, words: [str]) -> str:
+        alphabet, not_compared = collections.defaultdict(list), [True] * (len(words) - 1)
+        for column in itertools.zip_longest(*words):
+            for i in range(len(words) - 1):
+                if column[i] is None or column[i + 1] is None:
+                    not_compared[i] = False
+                if column[i] is not None and (column[i + 1] is None or not not_compared[i]):
+                    alphabet[column[i]]
+                if not_compared[i] and column[i] != column[i + 1]:
+                    alphabet[column[i]].append(column[i + 1])
+                    not_compared[i] = False
+            if column[-1] is not None:
+                alphabet[column[-1]]
+        # pprint(alphabet)
+        no_parent, res = alphabet.keys() - set(itertools.chain.from_iterable(alphabet.values())), ''
+        while no_parent:
+            for k in no_parent:
+                res += k
+                alphabet.pop(k)
+            no_parent = alphabet.keys() - set(itertools.chain.from_iterable(alphabet.values()))
+        # print(alphabet)
+        if alphabet:
+            return ''
+        return res
